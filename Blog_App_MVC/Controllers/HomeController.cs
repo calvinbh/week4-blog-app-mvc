@@ -50,5 +50,18 @@ namespace Blog_App_MVC.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult AddPost()
+        {
+            return View(new Post());
+        }
+
+        [HttpPost]
+        public ActionResult AddPost(Post model)
+        {
+            model.ID = db.posts.Select(x => x.ID).LastOrDefault() + 1;
+            db.posts.Add(model);
+            return RedirectToAction("Index");
+        }
     }
 }
