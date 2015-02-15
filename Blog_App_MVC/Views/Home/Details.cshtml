@@ -1,0 +1,19 @@
+﻿@model Blog_App_MVC.Models.Post
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 column">
+            <h1>@Model.Title</h1>
+            <h6>By: @Model.CreatedBy @Model.CreatedOn</h6>
+            <p>@Model.Body</p>
+
+            <h3>Comments</h3>
+            @foreach (var comment in Model.Comment)
+            { 
+                <h4>@comment</h4>
+            }
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
