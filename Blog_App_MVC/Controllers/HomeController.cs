@@ -39,5 +39,16 @@ namespace Blog_App_MVC.Controllers
             }
 
         }
+
+        public ActionResult DeletePost(int id = -1)
+        {
+            if (id == -1) return RedirectToAction("Index");
+            if (db.posts.Any(x => x.ID == id))
+            {
+                Post post = db.posts.Where(x => x.ID == id).FirstOrDefault();
+                db.posts.Remove(post);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -8,6 +8,8 @@
             <h6>By: @Model.CreatedBy @Model.CreatedOn</h6>
             <p>@Model.Body</p>
 
+            @Html.ActionLink("Delete", "DeletePost", new { id = @Model.ID }, new { @class = "btn btn-danger" })
+
             <h3>Comments</h3>
             @foreach (var comment in Model.Comment)
             { 
